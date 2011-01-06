@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<ServiceConfiguration serviceName="EmailMergeManagementAzure" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration">
+  <Role name="EmailMergeManagement">
+    <Instances count="1" />
+    <ConfigurationSettings>
+    </ConfigurationSettings>
+  </Role>
+</ServiceConfiguration>
