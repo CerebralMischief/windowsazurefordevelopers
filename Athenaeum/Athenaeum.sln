@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "Athenaeum", "Athenaeum\Athenaeum.ccproj", "{C1333F1F-8164-498B-9100-476B99F20455}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Athenaeum.WebRole", "Athenaeum.WebRole\Athenaeum.WebRole.csproj", "{3790A7B0-6EC0-4F9F-9913-5C205EF7B436}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Athenaeum.WebRole.Tests", "Athenaeum.WebRole.Tests\Athenaeum.WebRole.Tests.csproj", "{A80347EF-21D8-4042-A66B-69221B6F0FD4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C1333F1F-8164-498B-9100-476B99F20455}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1333F1F-8164-498B-9100-476B99F20455}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1333F1F-8164-498B-9100-476B99F20455}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1333F1F-8164-498B-9100-476B99F20455}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3790A7B0-6EC0-4F9F-9913-5C205EF7B436}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3790A7B0-6EC0-4F9F-9913-5C205EF7B436}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3790A7B0-6EC0-4F9F-9913-5C205EF7B436}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3790A7B0-6EC0-4F9F-9913-5C205EF7B436}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A80347EF-21D8-4042-A66B-69221B6F0FD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A80347EF-21D8-4042-A66B-69221B6F0FD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A80347EF-21D8-4042-A66B-69221B6F0FD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A80347EF-21D8-4042-A66B-69221B6F0FD4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
