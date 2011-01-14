@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="EchoCloud">
+</Property><Property Name="Solution File" Value="C:\A_Dev\windowsazurefordevelopers\EchoCloud\EchoCloud.sln">
+</Property><Property Name="Date" Value="Thursday, January 13, 2011">
+</Property><Property Name="Time" Value="20:34 PM">
+</Property></Properties><Event ErrorLevel="0" Project="C:\A_Dev\windowsazurefordevelopers\EchoCloud\EchoCloud\EchoCloud.ccproj" Source="EchoCloud\EchoCloud.ccproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="C:\A_Dev\windowsazurefordevelopers\EchoCloud\EchoCloud\EchoCloud.ccproj" Source="EchoCloud\EchoCloud.ccproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="C:\A_Dev\windowsazurefordevelopers\EchoCloud\EchoCloud\EchoCloud.ccproj" Source="EchoCloud\EchoCloud.ccproj" Description="Upgraded ProductVersion value to 1.3.0.">
+</Event><Event ErrorLevel="0" Project="EchoWorker" Source="EchoWorker\EchoWorker.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="EchoWorker" Source="EchoWorker\EchoWorker.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="EchoCloud.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="EchoCloud.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="EchoWorker" Source="EchoWorker\EchoWorker.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

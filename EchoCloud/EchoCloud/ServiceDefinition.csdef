@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceDefinition name="EchoCloud" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
+  <WorkerRole name="EchoWorker">
+    <ConfigurationSettings>
+      <Setting name="DiagnosticsConnectionString" />
+    </ConfigurationSettings>
+    <Endpoints>
+      <InputEndpoint name="EchoEndpoint" protocol="tcp" port="1234" />
+    </Endpoints>
+  </WorkerRole>
+</ServiceDefinition>
