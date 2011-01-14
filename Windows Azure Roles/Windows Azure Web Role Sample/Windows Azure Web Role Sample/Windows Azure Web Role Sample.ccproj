@@ -4,7 +4,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>1.3.0</ProductVersion>
-    <ProjectGuid>{994540f3-3acc-4072-a675-2300ff0ee850}</ProjectGuid>
+    <ProjectGuid>{7d7f6af5-a91d-46b9-86d2-6402ca1a55c7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Windows_Azure_Web_Role_Sample</RootNamespace>
@@ -37,14 +37,14 @@
   <ItemGroup>
     <ProjectReference Include="..\SampleWebRole\SampleWebRole.csproj">
       <Name>SampleWebRole</Name>
-      <Project>{5ee6de7b-4fe3-4961-90d9-a82ccb79b07b}</Project>
+      <Project>{2550cbe6-2fea-4a27-9a3e-8de9368155aa}</Project>
       <Private>True</Private>
       <RoleType>Web</RoleType>
       <RoleName>SampleWebRole</RoleName>
     </ProjectReference>
     <ProjectReference Include="..\SampleWorkerRole\SampleWorkerRole.csproj">
       <Name>SampleWorkerRole</Name>
-      <Project>{9845b87f-6b5b-47e2-85d9-0009793064c7}</Project>
+      <Project>{636bc3cd-69f4-4ab5-a7db-76374f3430e4}</Project>
       <Private>True</Private>
       <RoleType>Worker</RoleType>
       <RoleName>SampleWorkerRole</RoleName>

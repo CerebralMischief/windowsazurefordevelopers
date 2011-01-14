@@ -9,7 +9,7 @@
   **********************************************************************************************
 -->
 <ServiceDefinition name="Windows_Azure_Web_Role_Sample" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
-  <WebRole name="SampleWebRole" vmsize="Small">
+  <WebRole name="SampleWebRole">
     <Sites>
       <Site name="Web">
         <Bindings>
@@ -24,12 +24,12 @@
       <Import moduleName="Diagnostics" />
     </Imports>
   </WebRole>
-  <WorkerRole name="SampleWorkerRole" vmsize="Small">
-    <Imports>
-      <Import moduleName="Diagnostics" />
-    </Imports>
+  <WorkerRole name="SampleWorkerRole">
+    <ConfigurationSettings>
+      <Setting name="DiagnosticsConnectionString" />
+    </ConfigurationSettings>
     <Endpoints>
-      <InputEndpoint name="MyEndPoint" protocol="tcp" port="10000" />
+      <InputEndpoint name="TelnetServiceEndpoint" protocol="tcp" port="1234" />
     </Endpoints>
   </WorkerRole>
 </ServiceDefinition>

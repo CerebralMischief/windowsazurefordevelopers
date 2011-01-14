@@ -6,7 +6,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{71FC614E-DB83-4F5F-BE2B-BFBA0DB1388B}</ProjectGuid>
+    <ProjectGuid>{33355141-DF2C-4AD1-A268-5FD4243EE244}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SampleWebRole.Tests</RootNamespace>
@@ -63,7 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SampleWebRole\SampleWebRole.csproj">
-      <Project>{5EE6DE7B-4FE3-4961-90D9-A82CCB79B07B}</Project>
+      <Project>{2550CBE6-2FEA-4A27-9A3E-8DE9368155AA}</Project>
       <Name>SampleWebRole</Name>
     </ProjectReference>
   </ItemGroup>
