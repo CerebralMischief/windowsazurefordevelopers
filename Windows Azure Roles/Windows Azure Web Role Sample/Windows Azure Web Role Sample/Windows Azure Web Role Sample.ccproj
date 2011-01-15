@@ -35,13 +35,6 @@
     <ServiceConfiguration Include="ServiceConfiguration.cscfg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SampleWebRole\SampleWebRole.csproj">
-      <Name>SampleWebRole</Name>
-      <Project>{2550cbe6-2fea-4a27-9a3e-8de9368155aa}</Project>
-      <Private>True</Private>
-      <RoleType>Web</RoleType>
-      <RoleName>SampleWebRole</RoleName>
-    </ProjectReference>
     <ProjectReference Include="..\SampleWorkerRole\SampleWorkerRole.csproj">
       <Name>SampleWorkerRole</Name>
       <Project>{636bc3cd-69f4-4ab5-a7db-76374f3430e4}</Project>

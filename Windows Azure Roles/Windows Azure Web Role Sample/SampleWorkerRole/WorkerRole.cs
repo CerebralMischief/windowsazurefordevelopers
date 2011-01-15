@@ -24,8 +24,7 @@ namespace SampleWorkerRole
             try
             {
                 listener = new TcpListener(
-                    RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["TelnetServiceEndpoint"].IPEndpoint)
-                               {ExclusiveAddressUse = false};
+                    RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["TelnetServiceEndpoint"].IPEndpoint) { ExclusiveAddressUse = false };
                 listener.Start();
 
                 Trace.WriteLine("Started Telnet Service.", "Information");
@@ -40,6 +39,34 @@ namespace SampleWorkerRole
             {
                 listener.BeginAcceptTcpClient(HandleAsyncConnection, listener);
                 _connectionWait.WaitOne();
+            }
+        }
+
+        private static void WriteRoleInformation(Guid clientId, StreamWriter writer)
+        {
+            writer.WriteLine("--- Current Client ID, Date & Time ----");
+            writer.WriteLine("Current date: " + DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToLongTimeString());
+            writer.WriteLine("Connection ID: " + clientId);
+            writer.WriteLine();
+
+            writer.WriteLine("--- Current Role Instance Information ----");
+            writer.WriteLine("Role ID: " + RoleEnvironment.CurrentRoleInstance.Id);
+            writer.WriteLine("Role Count: " + RoleEnvironment.Roles.Count);
+            writer.WriteLine("Deployment ID: " + RoleEnvironment.DeploymentId);
+            writer.WriteLine();
+
+            writer.WriteLine("--- Instance Endpoints ----");
+
+            foreach (KeyValuePair<string, RoleInstanceEndpoint> instanceEndpoint in RoleEnvironment.CurrentRoleInstance.InstanceEndpoints)
+            {
+                writer.WriteLine("Instance Endpoint Key: " + instanceEndpoint.Key);
+
+                RoleInstanceEndpoint roleInstanceEndpoint = instanceEndpoint.Value;
+
+                writer.WriteLine("Instance Endpoint IP: " + roleInstanceEndpoint.IPEndpoint);
+                writer.WriteLine("Instance Endpoint Protocol: " + roleInstanceEndpoint.Protocol);
+                writer.WriteLine("Instance Endpoint Type: " + roleInstanceEndpoint);
+                writer.WriteLine();
             }
         }
 
@@ -71,25 +98,7 @@ namespace SampleWorkerRole
                 switch (input)
                 {
                     case "1":
-                        writer.WriteLine("--- Current Date & Time ----");
-                        writer.WriteLine("Current date: " + DateTime.Now.ToLongDateString() + " "+ DateTime.Now.ToLongTimeString());
-                        
-                        writer.WriteLine("--- Current Role Instance Information ----");
-                        writer.WriteLine("Role ID: " + RoleEnvironment.CurrentRoleInstance.Id);
-                        writer.WriteLine("Instance Endpoints: ");
-
-                        foreach (KeyValuePair<string, RoleInstanceEndpoint> roleInstanceEndpoint in RoleEnvironment.CurrentRoleInstance.InstanceEndpoints)
-                        {
-                            writer.WriteLine("Instance Endpoint Key: " + roleInstanceEndpoint.Key);
-                            writer.WriteLine("Instance Endpoint Value: " + roleInstanceEndpoint.Value);    
-                        }
-
-                        writer.WriteLine("Role Count: " + RoleEnvironment.Roles.Count);
-                        writer.WriteLine("Deployment ID: " + RoleEnvironment.DeploymentId);
-                        
-
-
-                        writer.WriteLine("Connection ID: " + clientId);
+                        WriteRoleInformation(clientId, writer);
                         break;
                     case "2":
                         RoleEnvironment.RequestRecycle();
@@ -101,7 +110,6 @@ namespace SampleWorkerRole
 
             client.Close();
         }
-
 
         public override bool OnStart()
         {
