@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -70,9 +71,24 @@ namespace SampleWorkerRole
                 switch (input)
                 {
                     case "1":
-                        writer.WriteLine("Current date: " + DateTime.Now.ToShortDateString());
-                        writer.WriteLine("Current time: " + DateTime.Now.ToShortTimeString());
+                        writer.WriteLine("--- Current Date & Time ----");
+                        writer.WriteLine("Current date: " + DateTime.Now.ToLongDateString() + " "+ DateTime.Now.ToLongTimeString());
+                        
+                        writer.WriteLine("--- Current Role Instance Information ----");
                         writer.WriteLine("Role ID: " + RoleEnvironment.CurrentRoleInstance.Id);
+                        writer.WriteLine("Instance Endpoints: ");
+
+                        foreach (KeyValuePair<string, RoleInstanceEndpoint> roleInstanceEndpoint in RoleEnvironment.CurrentRoleInstance.InstanceEndpoints)
+                        {
+                            writer.WriteLine("Instance Endpoint Key: " + roleInstanceEndpoint.Key);
+                            writer.WriteLine("Instance Endpoint Value: " + roleInstanceEndpoint.Value);    
+                        }
+
+                        writer.WriteLine("Role Count: " + RoleEnvironment.Roles.Count);
+                        writer.WriteLine("Deployment ID: " + RoleEnvironment.DeploymentId);
+                        
+
+
                         writer.WriteLine("Connection ID: " + clientId);
                         break;
                     case "2":
