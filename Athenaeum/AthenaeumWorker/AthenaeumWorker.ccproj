@@ -4,13 +4,13 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>1.3.0</ProductVersion>
-    <ProjectGuid>{c1333f1f-8164-498b-9100-476b99f20455}</ProjectGuid>
+    <ProjectGuid>{99999999-9999-9999-9999-999999999999}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Athenaeum</RootNamespace>
-    <AssemblyName>Athenaeum</AssemblyName>
+    <RootNamespace>AthenaeumWorker</RootNamespace>
+    <AssemblyName>AthenaeumWorker</AssemblyName>
     <StartDevelopmentStorage>True</StartDevelopmentStorage>
-    <Name>Athenaeum</Name>
+    <Name>AthenaeumWorker</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,22 +33,6 @@
   <ItemGroup>
     <ServiceDefinition Include="ServiceDefinition.csdef" />
     <ServiceConfiguration Include="ServiceConfiguration.cscfg" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Athenaeum.WebRole\Athenaeum.WebRole.csproj">
-      <Name>Athenaeum.WebRole</Name>
-      <Project>{3790a7b0-6ec0-4f9f-9913-5c205ef7b436}</Project>
-      <Private>True</Private>
-      <RoleType>Web</RoleType>
-      <RoleName>Athenaeum.WebRole</RoleName>
-    </ProjectReference>
-    <ProjectReference Include="..\Athenaeum.WorkerRole\Athenaeum.WorkerRole.csproj">
-      <Name>Athenaeum.WorkerRole</Name>
-      <Project>{65cf26f4-da53-41f4-972b-f7af354e0659}</Project>
-      <Private>True</Private>
-      <RoleType>Worker</RoleType>
-      <RoleName>Athenaeum.WorkerRole</RoleName>
-    </ProjectReference>
   </ItemGroup>
   <!-- Import the target files for this project template -->
   <PropertyGroup>
