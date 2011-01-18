@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailMergeManagement", "EmailMergeManagement\EmailMergeManagement.csproj", "{80AA48DC-29E9-4698-8DB2-4B79EF3DC98A}"
 EndProject
-Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "EmailMergeManagementAzure", "EmailMergeManagementAzure\EmailMergeManagementAzure.ccproj", "{7750E8CD-F49B-45D2-BF29-2CF5C148AE5D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HtmlEnumDropDownExtensions", "HtmlEnumDropDownExtensions\HtmlEnumDropDownExtensions.csproj", "{C878D21D-B89F-461E-AD23-47C653F1A595}"
 EndProject
 Project("{C8D11400-126E-41CD-887F-60BD40844F9E}") = "NamesDatabase", "NamesDatabase\NamesDatabase.dbproj", "{67CBC824-A49E-4E9B-A947-360F3DFE65C3}"
+EndProject
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "EmailMergeManagementAzure", "EmailMergeManagementAzure\EmailMergeManagementAzure.ccproj", "{80CEAF68-0FB8-4B82-A39D-33DA49A7D593}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +19,6 @@ Global
 		{80AA48DC-29E9-4698-8DB2-4B79EF3DC98A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80AA48DC-29E9-4698-8DB2-4B79EF3DC98A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80AA48DC-29E9-4698-8DB2-4B79EF3DC98A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7750E8CD-F49B-45D2-BF29-2CF5C148AE5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7750E8CD-F49B-45D2-BF29-2CF5C148AE5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7750E8CD-F49B-45D2-BF29-2CF5C148AE5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7750E8CD-F49B-45D2-BF29-2CF5C148AE5D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C878D21D-B89F-461E-AD23-47C653F1A595}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C878D21D-B89F-461E-AD23-47C653F1A595}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C878D21D-B89F-461E-AD23-47C653F1A595}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{80CEAF68-0FB8-4B82-A39D-33DA49A7D593}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80CEAF68-0FB8-4B82-A39D-33DA49A7D593}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80CEAF68-0FB8-4B82-A39D-33DA49A7D593}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80CEAF68-0FB8-4B82-A39D-33DA49A7D593}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -42,6 +42,13 @@
       <RoleType>Web</RoleType>
       <RoleName>Athenaeum.WebRole</RoleName>
     </ProjectReference>
+    <ProjectReference Include="..\Athenaeum.WorkerRole\Athenaeum.WorkerRole.csproj">
+      <Name>Athenaeum.WorkerRole</Name>
+      <Project>{65cf26f4-da53-41f4-972b-f7af354e0659}</Project>
+      <Private>True</Private>
+      <RoleType>Worker</RoleType>
+      <RoleName>Athenaeum.WorkerRole</RoleName>
+    </ProjectReference>
   </ItemGroup>
   <!-- Import the target files for this project template -->
   <PropertyGroup>

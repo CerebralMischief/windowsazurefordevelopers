@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.WindowsAzure;
+using Microsoft.WindowsAzure.ServiceRuntime;
 using Microsoft.WindowsAzure.StorageClient;
 
 namespace EmailMergeManagement.Models
@@ -12,8 +13,10 @@ namespace EmailMergeManagement.Models
 
         public EmailMergeRepository()
         {
-            var storageAccount = CloudStorageAccount.
-                FromConfigurationSetting("DiagnosticsConnectionString");
+            var storageAccount = CloudStorageAccount.Parse(RoleEnvironment.GetConfigurationSettingValue("DiagnosticsConnectionString"));
+
+            //var storageAccount = CloudStorageAccount.
+            //    FromConfigurationSetting("DiagnosticsConnectionString");
             _serviceContext =
                 new EmailMergeDataServiceContext(
                     storageAccount.TableEndpoint.ToString(),

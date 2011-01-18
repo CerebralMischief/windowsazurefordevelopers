@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Athenaeum.WebRole", "Athena
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Athenaeum.WebRole.Tests", "Athenaeum.WebRole.Tests\Athenaeum.WebRole.Tests.csproj", "{A80347EF-21D8-4042-A66B-69221B6F0FD4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Athenaeum.WorkerRole", "Athenaeum.WorkerRole\Athenaeum.WorkerRole.csproj", "{65CF26F4-DA53-41F4-972B-F7AF354E0659}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Athenaeum.Storage", "Athenaeum.Storage\Athenaeum.Storage.csproj", "{6D4BEF2A-0460-4479-AC78-17F59EE301B6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +29,14 @@ Global
 		{A80347EF-21D8-4042-A66B-69221B6F0FD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A80347EF-21D8-4042-A66B-69221B6F0FD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A80347EF-21D8-4042-A66B-69221B6F0FD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65CF26F4-DA53-41F4-972B-F7AF354E0659}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65CF26F4-DA53-41F4-972B-F7AF354E0659}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65CF26F4-DA53-41F4-972B-F7AF354E0659}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65CF26F4-DA53-41F4-972B-F7AF354E0659}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D4BEF2A-0460-4479-AC78-17F59EE301B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D4BEF2A-0460-4479-AC78-17F59EE301B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D4BEF2A-0460-4479-AC78-17F59EE301B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D4BEF2A-0460-4479-AC78-17F59EE301B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

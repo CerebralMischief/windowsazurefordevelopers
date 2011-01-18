@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading;
 using Microsoft.WindowsAzure.Diagnostics;
 using Microsoft.WindowsAzure.ServiceRuntime;
@@ -14,7 +12,7 @@ namespace EchoWorker
 {
     public class WorkerRole : RoleEntryPoint
     {
-        private AutoResetEvent connectionWaitHandle = new AutoResetEvent(false); 
+        private readonly AutoResetEvent _connectionWaitHandle = new AutoResetEvent(false); 
 
         public override void Run()
         {
@@ -39,7 +37,7 @@ namespace EchoWorker
             while (true)
             {
                 IAsyncResult result =  listener.BeginAcceptTcpClient(HandleAsyncConnection, listener); 
-                connectionWaitHandle.WaitOne();
+                _connectionWaitHandle.WaitOne();
             }
         }
 
@@ -48,7 +46,7 @@ namespace EchoWorker
             // Accept connection
             TcpListener listener = (TcpListener)result.AsyncState;
             TcpClient client = listener.EndAcceptTcpClient(result);
-            connectionWaitHandle.Set(); 
+            _connectionWaitHandle.Set(); 
 
             // Accepted connection
             Guid clientId = Guid.NewGuid();

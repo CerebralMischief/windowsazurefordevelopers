@@ -1,8 +1,10 @@
-<?xml version="1.0"?>
-<ServiceConfiguration serviceName="EmailMergeManagementAzure" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration">
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="EmailMergeManagementAzure" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="1" osVersion="*">
   <Role name="EmailMergeManagement">
     <Instances count="1" />
     <ConfigurationSettings>
+      <Setting name="DiagnosticsConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="" />
     </ConfigurationSettings>
   </Role>
 </ServiceConfiguration>
