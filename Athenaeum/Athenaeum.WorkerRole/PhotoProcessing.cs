@@ -9,7 +9,7 @@ namespace Athenaeum.WorkerRole
         public static void Run()
         {
             // Read from queue
-           Microsoft.WindowsAzure.StorageClient.CloudQueueMessage msg = Storage.Queue.GetNextMessage();
+            CloudQueueMessage msg = Storage.Queue.GetNextMessage();
 
             while (msg != null)
             {
