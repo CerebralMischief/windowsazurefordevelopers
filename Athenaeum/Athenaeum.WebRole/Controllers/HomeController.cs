@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -23,5 +24,25 @@ namespace Athenaeum.WebRole.Controllers
         {
             return View();
         }
+
+        public void Upload()
+        {
+            foreach (string inputTagName in Request.Files)
+            {
+                HttpPostedFileBase file = Request.Files[inputTagName];
+                if (file.ContentLength > 0)
+                {
+                    string filePath = Path.Combine(HttpContext.Server.MapPath("../Uploads")
+                    , Path.GetFileName(file.FileName));
+                    
+                    //TODO: Save it to the blob here (where's my class?)
+                }
+            }
+
+            RedirectToAction("Index", "Home");
+        }
+
+
+
     }
 }
