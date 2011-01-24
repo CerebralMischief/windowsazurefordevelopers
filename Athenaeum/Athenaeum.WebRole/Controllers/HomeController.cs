@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Athenaeum.WebRole.Models;
 using Microsoft.WindowsAzure.ServiceRuntime;
 
 namespace Athenaeum.WebRole.Controllers
@@ -25,21 +26,28 @@ namespace Athenaeum.WebRole.Controllers
             return View();
         }
 
-        public void Upload()
+        public ActionResult Upload()
         {
             foreach (string inputTagName in Request.Files)
             {
-                HttpPostedFileBase file = Request.Files[inputTagName];
+                var file = Request.Files[inputTagName];
                 if (file.ContentLength > 0)
                 {
-                    string filePath = Path.Combine(HttpContext.Server.MapPath("../Uploads")
-                    , Path.GetFileName(file.FileName));
-                    
-                    //TODO: Save it to the blob here (where's my class?)
+                    var blobFileModel =
+                        new BlobFileModel
+                            {
+                                BlobFile = file.InputStream,
+                                Description = "I'll add a field for this.",
+                                DownloadedOn = DateTime.Now,
+                                FileName = Path.GetFileName(file.FileName)
+                            };
+
+                    var repository = new FileBlobRepository();
+                    repository.PutFile(blobFileModel);
                 }
             }
 
-            RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Home");
         }
 
 

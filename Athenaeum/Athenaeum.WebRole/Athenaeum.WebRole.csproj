@@ -78,7 +78,7 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\BlobFileModel.cs" />
-    <Compile Include="Models\Class1.cs" />
+    <Compile Include="Models\FileBlobRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebRole.cs" />
   </ItemGroup>
