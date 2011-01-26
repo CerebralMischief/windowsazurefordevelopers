@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "PutJunkInIt", "PutJunkInIt\PutJunkInIt.ccproj", "{0111DF1F-5442-4FB1-976F-6FF555D84035}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JunkTrunk", "JunkTrunk\JunkTrunk.csproj", "{621F631E-F0EE-4660-85B3-F8E5CF234AEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JunkTrunk.Tests", "JunkTrunk.Tests\JunkTrunk.Tests.csproj", "{771C2012-AE3A-4FFC-BE7B-AC4428A70C11}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0111DF1F-5442-4FB1-976F-6FF555D84035}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0111DF1F-5442-4FB1-976F-6FF555D84035}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0111DF1F-5442-4FB1-976F-6FF555D84035}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0111DF1F-5442-4FB1-976F-6FF555D84035}.Release|Any CPU.Build.0 = Release|Any CPU
+		{621F631E-F0EE-4660-85B3-F8E5CF234AEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{621F631E-F0EE-4660-85B3-F8E5CF234AEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{621F631E-F0EE-4660-85B3-F8E5CF234AEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{621F631E-F0EE-4660-85B3-F8E5CF234AEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{771C2012-AE3A-4FFC-BE7B-AC4428A70C11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{771C2012-AE3A-4FFC-BE7B-AC4428A70C11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{771C2012-AE3A-4FFC-BE7B-AC4428A70C11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{771C2012-AE3A-4FFC-BE7B-AC4428A70C11}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

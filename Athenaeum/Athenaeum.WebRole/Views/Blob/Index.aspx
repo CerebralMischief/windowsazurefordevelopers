@@ -32,7 +32,7 @@
                    {%><br />
                 <p>
                     <input type="file" id="fileUpload" name="fileUpload" size="23" />
-                    ;</p>
+                                        ;</p>
                 <br />
                 <p>
                     <input type="submit" value="Upload file" /></p>
