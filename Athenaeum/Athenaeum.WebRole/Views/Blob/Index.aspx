@@ -8,22 +8,6 @@
         Select the file to upload and then enter the information. Click on upload to complete
         the process.</p>
     <table>
-       <%-- <tr valign="top">
-            <td>
-                Description:
-            </td>
-            <td>
-                <textarea id="TextArea1" cols="50" rows="5"></textarea>
-            </td>
-        </tr>
-        <tr valign="top">
-            <td>
-                Date:
-            </td>
-            <td>
-                <input id="Date" type="text" />
-            </td>
-        </tr>--%>
         <tr valign="top">
             <h2>
                 Files uploaded to server</h2>
@@ -32,7 +16,7 @@
                    {%><br />
                 <p>
                     <input type="file" id="fileUpload" name="fileUpload" size="23" />
-                                        ;</p>
+                </p>
                 <br />
                 <p>
                     <input type="submit" value="Upload file" /></p>
@@ -43,7 +27,7 @@
     </table>
 </asp:Content>
 <asp:Content runat="server" ID="trailing" ContentPlaceHolderID="trailingJavascript">
-   <%-- <script language="javascript" type="text/javascript">
+    <%-- <script language="javascript" type="text/javascript">
         $(document).ready(function () {
             $("[ID$='Date']").datepicker();
             $("[ID$='FileUpload']").css("width", "425px");

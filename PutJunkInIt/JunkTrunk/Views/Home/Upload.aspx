@@ -7,7 +7,7 @@
 	<h2>
 		Upload</h2>
 	<!-- Added form code - be sure to copy -->
-	<% using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+	<% using (Html.BeginForm("UploadFile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
 	   {%>
 	<%: Html.ValidationSummary(true) %>
 	<fieldset>

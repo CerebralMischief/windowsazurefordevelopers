@@ -35,6 +35,13 @@
     <ServiceConfiguration Include="ServiceConfiguration.cscfg" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\JunkTrunk.WorkerRole\JunkTrunk.WorkerRole.csproj">
+      <Name>JunkTrunk.WorkerRole</Name>
+      <Project>{2169ee70-4ee6-4d82-8483-b7dc723d8d3a}</Project>
+      <Private>True</Private>
+      <RoleType>Worker</RoleType>
+      <RoleName>JunkTrunk.WorkerRole</RoleName>
+    </ProjectReference>
     <ProjectReference Include="..\JunkTrunk\JunkTrunk.csproj">
       <Name>JunkTrunk</Name>
       <Project>{621f631e-f0ee-4660-85b3-f8e5cf234aea}</Project>

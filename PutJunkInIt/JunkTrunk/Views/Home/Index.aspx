@@ -15,4 +15,10 @@
         <%: Html.ActionLink("Upload", "Upload", "Home") %>
         a file to Windows Azure Blob Storage.
     </p>
+    <p>
+        Existing Files:<br />
+        <ul>
+            <li>soon to be here.</li>
+        </ul>
+    </p>
 </asp:Content>

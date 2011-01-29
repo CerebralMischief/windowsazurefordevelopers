@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using JunkTrunk;
 using JunkTrunk.Controllers;
 
 namespace JunkTrunk.Tests.Controllers
@@ -15,35 +10,25 @@ namespace JunkTrunk.Tests.Controllers
         [TestMethod]
         public void Index()
         {
-            // Arrange
-            HomeController controller = new HomeController();
-
-            // Act
-            ViewResult result = controller.Index() as ViewResult;
-
-            // Assert
-            ViewDataDictionary viewData = result.ViewData;
+            var controller = new HomeController();
+            var result = controller.Index() as ViewResult;
+            var viewData = result.ViewData;
             Assert.AreEqual("Welcome to ASP.NET MVC!", viewData["Message"]);
         }
 
         [TestMethod]
         public void About()
         {
-            // Arrange
-            HomeController controller = new HomeController();
-
-            // Act
-            ViewResult result = controller.About() as ViewResult;
-
-            // Assert
+            var controller = new HomeController();
+            var result = controller.About() as ViewResult;
             Assert.IsNotNull(result);
         }
 
         [TestMethod]
         public void Upload()
         {
-            HomeController controller = new HomeController();
-            ViewResult result = controller.Upload();
+            var controller = new HomeController();
+            var result = controller.Upload();
             Assert.IsNotNull(result);
         }
     }
