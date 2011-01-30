@@ -18,7 +18,7 @@ namespace JunkTrunk.WorkerRole
             {
                 PhotoProcessing.Run();
 
-                Thread.Sleep(5000);
+                Thread.Sleep(10000);
                 Trace.WriteLine("Working", "Information");
             }
         }

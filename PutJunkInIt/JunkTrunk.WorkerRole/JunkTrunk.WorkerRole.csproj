@@ -69,6 +69,12 @@
   <ItemGroup>
     <None Include="app.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JunkTrunk.Storage\JunkTrunk.Storage.csproj">
+      <Project>{11D3CECB-2685-4D7E-A9DC-ACECB66FC4FC}</Project>
+      <Name>JunkTrunk.Storage</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

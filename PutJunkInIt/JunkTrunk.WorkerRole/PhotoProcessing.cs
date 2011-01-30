@@ -1,6 +1,7 @@
+using System;
 using System.Drawing;
 
-namespace JunkTrunk.Worker
+namespace JunkTrunk.WorkerRole
 {
     public class PhotoProcessing
     {
@@ -24,17 +25,25 @@ namespace JunkTrunk.Worker
 
         private static void AddWatermark(string blobUri, string fileName)
         {
-            var stream = Storage.Blob.GetBlob(blobUri);
-            var img = Image.FromStream(stream);
+            try
+            {
+                var stream = Storage.Blob.GetBlob(blobUri);
+                var img = Image.FromStream(stream);
 
-            var g = Graphics.FromImage(img);
+                var g = Graphics.FromImage(img);
 
-            var font = new Font("Arial", 24);
-            var brush = new SolidBrush(Color.Red);
+                var font = new Font("Arial", 24);
+                var brush = new SolidBrush(Color.Red);
 
-            g.DrawString("WATERMARK", font, brush, new PointF(100, 100));
+                g.DrawString("WATERMARK", font, brush, new PointF(100, 100));
 
-            Storage.Blob.PutBlob(stream, fileName);
+                Storage.Blob.PutBlob(stream, fileName);
+            }
+            catch (Exception)
+            {
+                // TODO: Add logging here.
+            }
+
         }
     }
 }
