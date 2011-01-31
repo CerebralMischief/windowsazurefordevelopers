@@ -27,5 +27,6 @@ namespace JunkTrunk.Storage
         {
             Queue.DeleteMessage(msg);
         }
+
     }
 }

@@ -12,14 +12,14 @@ namespace JunkTrunk.WorkerRole
     {
         public override void Run()
         {
-            Trace.WriteLine("AzureStorageWorker entry point called", "Information");
+            Trace.WriteLine("Junk Trunk Worker entry point called", "Information");
 
             while (true)
             {
                 PhotoProcessing.Run();
 
                 Thread.Sleep(10000);
-                Trace.WriteLine("Working", "Information");
+                Trace.WriteLine("Working", "Junk Trunk Worker Role is active and running.");
             }
         }
 
@@ -52,10 +52,10 @@ namespace JunkTrunk.WorkerRole
 
         private static void RoleEnvironmentChanging(object sender, RoleEnvironmentChangingEventArgs e)
         {
-            if (e.Changes.Any(change => change is RoleEnvironmentConfigurationSettingChange))
-            {
-                e.Cancel = true;
-            }
+            if (!e.Changes.Any(change => change is RoleEnvironmentConfigurationSettingChange)) return;
+            
+            Trace.WriteLine("Working", "Environment Change: " + e.Changes.ToList());
+            e.Cancel = true;
         }
 
     }

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<JunkTrunk.Models.FileItemModel>>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
     Home Page
@@ -15,10 +15,42 @@
         <%: Html.ActionLink("Upload", "Upload", "Home") %>
         a file to Windows Azure Blob Storage.
     </p>
+    Existing Files:<br />
+    <table>
+        <tr>
+            <th>
+            </th>
+            <th>
+                FileName
+            </th>
+            <th>
+                DownloadedOn
+            </th>
+            <th>
+                Description
+            </th>
+        </tr>
+        <% foreach (var item in Model)
+           { %>
+        <tr>
+            <td>
+                <%: Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })%>
+                |
+                <%: Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })%>
+            </td>
+            <td>
+                <%: item.FileName %>
+            </td>
+            <td>
+                <%: String.Format("{0:g}", item.DownloadedOn) %>
+            </td>
+            <td>
+                <%: item.Description %>
+            </td>
+        </tr>
+        <% } %>
+    </table>
     <p>
-        Existing Files:<br />
-        <ul>
-            <li>soon to be here.</li>
-        </ul>
+        <%: Html.ActionLink("Upload a New File", "Upload") %>
     </p>
 </asp:Content>

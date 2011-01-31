@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Drawing;
 
 namespace JunkTrunk.WorkerRole
@@ -7,19 +8,18 @@ namespace JunkTrunk.WorkerRole
     {
         public static void Run()
         {
-            var msg = Storage.Queue.GetNextMessage();
+            var queueMessage = Storage.Queue.GetNextMessage();
 
-            while (msg != null)
+            while (queueMessage != null)
             {
-                string[] message = msg.AsString.Split('$');
+                var message = queueMessage.AsString.Split('$');
                 if (message.Length == 2)
                 {
                     AddWatermark(message[0], message[1]);
                 }
 
-                Storage.Queue.DeleteMessage(msg);
-
-                msg = Storage.Queue.GetNextMessage();
+                Storage.Queue.DeleteMessage(queueMessage);
+                queueMessage = Storage.Queue.GetNextMessage();
             }
         }
 
@@ -28,22 +28,26 @@ namespace JunkTrunk.WorkerRole
             try
             {
                 var stream = Storage.Blob.GetBlob(blobUri);
-                var img = Image.FromStream(stream);
 
-                var g = Graphics.FromImage(img);
+                if (blobUri.EndsWith(".jpg"))
+                {
+                    var image = Image.FromStream(stream);
+                    var graphics = Graphics.FromImage(image);
+                    var font = new Font("Arial", 24);
+                    var brush = new SolidBrush(Color.Red);
+                    graphics.DrawString("WATERMARK", font, brush, new PointF(100, 100));
 
-                var font = new Font("Arial", 24);
-                var brush = new SolidBrush(Color.Red);
-
-                g.DrawString("WATERMARK", font, brush, new PointF(100, 100));
-
-                Storage.Blob.PutBlob(stream, fileName);
+                    Storage.Blob.PutBlob(stream, fileName);
+                }
+                else
+                {
+                    Storage.Blob.PutBlob(stream, fileName);
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                // TODO: Add logging here.
+                Trace.WriteLine("Error", ex.ToString());
             }
-
         }
     }
 }

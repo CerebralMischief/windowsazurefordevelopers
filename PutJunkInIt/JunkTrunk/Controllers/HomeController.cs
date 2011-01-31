@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Web;
 using System.Web.Mvc;
 using JunkTrunk.Models;
 
@@ -12,8 +11,8 @@ namespace JunkTrunk.Controllers
         public ActionResult Index()
         {
             ViewData["Message"] = "Welcome to ASP.NET MVC!";
-
-            return View();
+            var repository = new FileBlobRepository();
+            return View(repository.GetBlobFileList());
         }
 
         public ActionResult About()
@@ -23,6 +22,8 @@ namespace JunkTrunk.Controllers
 
         public ActionResult Upload()
         {
+            var repository = new FileBlobRepository();
+            ViewData["Blobs"] = repository.GetBlobFileList();
             return View();
         }
 
@@ -35,7 +36,7 @@ namespace JunkTrunk.Controllers
                 if (file.ContentLength > 0)
                 {
                     var blobFileModel =
-                        new BlobFileModel
+                        new BlobModel
                             {
                                 BlobFile = file.InputStream,
                                 Description = "We can add a description of some sort here.",
@@ -49,6 +50,16 @@ namespace JunkTrunk.Controllers
             }
 
             return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult Details()
+        {
+            return View();
+        }
+
+        public ActionResult Delete()
+        {
+            return View();
         }
     }
 }

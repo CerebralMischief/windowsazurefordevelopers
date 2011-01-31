@@ -9,7 +9,7 @@ namespace JunkTrunk.Tests.Models
         [TestMethod]
         public void InstantiateBlobFileModel()
         {
-            var blobFileModel = new BlobFileModel();
+            var blobFileModel = new BlobModel();
             Assert.IsNotNull(blobFileModel);
         }
     }

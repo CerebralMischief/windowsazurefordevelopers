@@ -76,13 +76,17 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\BlobFileModel.cs" />
+    <Compile Include="Models\BlobModel.cs" />
     <Compile Include="Models\FileBlobRepository.cs" />
+    <Compile Include="Models\FileItemModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebRole.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Views\Home\Delete.aspx" />
+    <Content Include="Views\Home\DeleteThisView.aspx" />
+    <Content Include="Views\Home\Details.aspx" />
     <Content Include="Views\Home\Upload.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
