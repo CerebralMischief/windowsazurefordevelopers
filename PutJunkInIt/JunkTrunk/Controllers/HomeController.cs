@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Web.Mvc;
 using JunkTrunk.Models;
+using JunkTrunk.Storage;
 
 namespace JunkTrunk.Controllers
 {
@@ -10,9 +12,11 @@ namespace JunkTrunk.Controllers
     {
         public ActionResult Index()
         {
-            ViewData["Message"] = "Welcome to ASP.NET MVC!";
+            //Table.ClearAllData();
+            ViewData["Message"] = "Welcome to the Windows Azure Blob Storing ASP.NET MVC Web Application!";
             var repository = new FileBlobRepository();
-            return View(repository.GetBlobFileList());
+            var fileItemModels = repository.GetBlobFileList();
+            return View(fileItemModels);
         }
 
         public ActionResult About()
@@ -39,9 +43,8 @@ namespace JunkTrunk.Controllers
                         new BlobModel
                             {
                                 BlobFile = file.InputStream,
-                                Description = "We can add a description of some sort here.",
-                                DownloadedOn = DateTime.Now,
-                                FileName = Path.GetFileName(file.FileName)
+                                UploadedOn = DateTime.Now,
+                                ResourceLocation = Path.GetFileName(file.FileName)
                             };
 
                     var repository = new FileBlobRepository();
@@ -52,14 +55,18 @@ namespace JunkTrunk.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        public ActionResult Details()
+        public ActionResult Delete(string identifier)
         {
-            return View();
+            var key = Guid.Parse(identifier);
+            var fileBlobRepository = new FileBlobRepository();
+            var blobFile = fileBlobRepository.GetFile(key);
+            return View(blobFile);
         }
 
-        public ActionResult Delete()
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult Delete(FileItemModel fileItemModel)
         {
-            return View();
+
         }
     }
 }

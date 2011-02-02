@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using JunkTrunk.Storage;
+using JunkTrunk.Storage.DataTransferObjects;
 using Microsoft.WindowsAzure.StorageClient;
 
 namespace JunkTrunk.Models
@@ -9,58 +11,49 @@ namespace JunkTrunk.Models
     {
         public void PutFile(BlobModel blobModel)
         {
-            string blobFileName = string.Format("{0}-{1}", DateTime.Now.ToString("yyyyMMdd"), blobModel.FileName);
-            string blobUri = Blob.PutBlob(blobModel.BlobFile, blobFileName);
+            var blobFileName = string.Format("{0}-{1}", DateTime.Now.ToString("yyyyMMdd"), blobModel.ResourceLocation);
+            var blobUri = Blob.PutBlob(blobModel.BlobFile, blobFileName);
 
             Table.Add(
                 new MetaData
                     {
-                        Description = blobModel.Description,
                         Date = DateTime.Now,
-                        ImageURL = blobUri,
-                        RowKey = blobFileName
+                        ResourceUri = blobUri,
+                        RowKey = Guid.NewGuid().ToString()
                     });
+
             Queue.Add(new CloudQueueMessage(blobUri + "$" + blobFileName));
         }
 
-        public BlobModel GetFile(string blobFileAddress)
+        public BlobModel GetFile(Guid key)
         {
+            var blobMetaData = Table.GetMetaData(key);
             var blobFileModel =
                 new BlobModel
                     {
-                        DownloadedOn = DateTime.Now,
-                        BlobFile = Blob.GetBlob(blobFileAddress),
-                        Description = "Will retrieve soon.",
-                        FileName = "Parse file name here."
+                        UploadedOn = blobMetaData.Date,
+                        BlobFile = Blob.GetBlob(blobMetaData.ResourceUri),
+                        ResourceLocation = blobMetaData.ResourceUri
                     };
             return blobFileModel;
         }
 
         public List<FileItemModel> GetBlobFileList()
         {
-            var fileItemModelList =
-                new List<FileItemModel>
-                    {
-                        new FileItemModel
-                            {
-                                Description = "stuff",
-                                DownloadedOn = DateTime.Now.AddDays(-2),
-                                FileName = "1test.jpg"
-                            },
-                        new FileItemModel
-                            {
-                                Description = "stuff2",
-                                DownloadedOn = DateTime.Now.AddDays(-2),
-                                FileName = "2test.jpg"
-                            },
-                        new FileItemModel
-                            {
-                                Description = "stuff3",
-                                DownloadedOn = DateTime.Now.AddDays(-2),
-                                FileName = "3test.jpg"
-                            }
-                    };
-            return new List<FileItemModel>();
+            var blobList = Table.GetAll();
+
+            return blobList.Select(
+                metaData => new FileItemModel
+                                {
+                                    ResourceId = Guid.Parse(metaData.RowKey),
+                                    ResourceLocation = metaData.ResourceUri,
+                                    UploadedOn = metaData.Date
+                                }).ToList();
+        }
+
+        public void ClearTheData()
+        {
+            Table.ClearAllData();
         }
     }
 }

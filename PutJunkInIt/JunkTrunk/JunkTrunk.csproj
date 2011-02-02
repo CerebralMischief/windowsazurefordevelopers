@@ -85,8 +85,6 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Views\Home\Delete.aspx" />
-    <Content Include="Views\Home\DeleteThisView.aspx" />
-    <Content Include="Views\Home\Details.aspx" />
     <Content Include="Views\Home\Upload.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

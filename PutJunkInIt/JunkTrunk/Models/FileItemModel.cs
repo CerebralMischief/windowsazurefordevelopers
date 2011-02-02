@@ -4,8 +4,8 @@ namespace JunkTrunk.Models
 {
     public class FileItemModel
     {
-        public string FileName { get; set; }
-        public DateTime DownloadedOn { get; set; }
-        public string Description { get; set; }
+        public Guid ResourceId { get; set; }
+        public string ResourceLocation { get; set; }
+        public DateTime UploadedOn { get; set; }
     }
 }

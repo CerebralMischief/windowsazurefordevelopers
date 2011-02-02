@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Microsoft.WindowsAzure.StorageClient;
 
 namespace JunkTrunk.Storage
 {
@@ -26,8 +25,12 @@ namespace JunkTrunk.Storage
         {
             var blobs = Blob.ListBlobs();
             var blobDictionary = blobs.ToDictionary(listBlobItem => listBlobItem.Uri.ToString(), listBlobItem => listBlobItem.Uri.ToString());
-
             return blobDictionary;
+        }
+
+        public static void DeleteBlob(string blobAddress)
+        {
+            Blob.GetBlobReference(blobAddress).DeleteIfExists();
         }
     }
 }

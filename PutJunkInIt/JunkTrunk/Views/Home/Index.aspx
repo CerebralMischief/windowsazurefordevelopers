@@ -6,11 +6,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h2>
         <%: ViewData["Message"] %></h2>
-    <%--  Remove this code for the book example.
-    <p>
-        To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
-    </p>--%>
-    <!-- Add this to the book example. -->
     <p>
         <%: Html.ActionLink("Upload", "Upload", "Home") %>
         a file to Windows Azure Blob Storage.
@@ -34,18 +29,17 @@
            { %>
         <tr>
             <td>
-                <%: Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })%>
-                |
-                <%: Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })%>
+                <form id="Form" method="post" action="<%= Url.Action( "Delete", "Home", new { @identifier = item.ResourceId}) %>">
+                    <input type="submit" value="Delete" />
+                </form>
+
+                <%: Html.ActionLink("Delete", "Delete", new { identifier = item.ResourceId })%>
             </td>
             <td>
-                <%: item.FileName %>
+                <%: item.ResourceLocation %>
             </td>
             <td>
-                <%: String.Format("{0:g}", item.DownloadedOn) %>
-            </td>
-            <td>
-                <%: item.Description %>
+                <%: String.Format("{0:g}", item.UploadedOn) %>
             </td>
         </tr>
         <% } %>
@@ -53,4 +47,5 @@
     <p>
         <%: Html.ActionLink("Upload a New File", "Upload") %>
     </p>
+
 </asp:Content>

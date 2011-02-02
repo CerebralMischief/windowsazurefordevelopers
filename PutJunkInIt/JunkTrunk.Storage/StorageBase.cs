@@ -35,6 +35,26 @@ namespace JunkTrunk.Storage
             get { return BlobClient.GetContainerReference(BlobContainerName); }
         }
 
+        /// <summary>
+        /// Start over method.
+        /// </summary>
+        public static void ClearAllData()
+        {
+            var container = StorageBase.BlobClient.ListContainers();
+
+            foreach (var cloudBlobContainer in container)
+            {
+                cloudBlobContainer.Delete();
+            }
+
+            var table = StorageBase.Table.ListTables();
+
+            foreach (var tableName in table)
+            {
+                Table.DeleteTable(tableName);
+            }
+        }
+
         private static CloudBlobClient BlobClient
         {
             get

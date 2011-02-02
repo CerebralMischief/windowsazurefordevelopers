@@ -19,7 +19,6 @@ namespace JunkTrunk.Storage
         public static List<CloudQueueMessage> GetAllMessages()
         {
             int count = Queue.RetrieveApproximateMessageCount();
-
             return Queue.GetMessages(count).ToList();
         }
 
