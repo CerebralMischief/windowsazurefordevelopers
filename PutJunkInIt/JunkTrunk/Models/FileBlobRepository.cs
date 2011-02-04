@@ -55,5 +55,10 @@ namespace JunkTrunk.Models
         {
             Table.ClearAllData();
         }
+
+        public void Delete(string identifier)
+        {
+            Table.DeleteMetaDataAndBlob(Guid.Parse(identifier));
+        }
     }
 }

@@ -29,10 +29,6 @@
            { %>
         <tr>
             <td>
-                <form id="Form" method="post" action="<%= Url.Action( "Delete", "Home", new { @identifier = item.ResourceId}) %>">
-                    <input type="submit" value="Delete" />
-                </form>
-
                 <%: Html.ActionLink("Delete", "Delete", new { identifier = item.ResourceId })%>
             </td>
             <td>
@@ -47,5 +43,4 @@
     <p>
         <%: Html.ActionLink("Upload a New File", "Upload") %>
     </p>
-
 </asp:Content>

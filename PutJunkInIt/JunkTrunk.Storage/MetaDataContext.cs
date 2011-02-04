@@ -47,11 +47,5 @@ namespace JunkTrunk.Storage
 
             SaveChanges();
         }
-
-        public void DeleteMetaData(MetaData metaData )
-        {
-            DeleteObject(metaData);
-            SaveChanges();
-        }
     }
 }

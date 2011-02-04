@@ -28,7 +28,11 @@ namespace JunkTrunk.Storage
                     select e).SingleOrDefault();
             Storage.Blob.DeleteBlob(entity.ResourceUri);
 
-            Context.DeleteMetaData(entity);
+            
+
+            Context.AttachTo("something", entity);
+            Context.DeleteObject(entity);
+            Context.SaveChanges();
         }
 
        public static List<MetaData> GetAll()

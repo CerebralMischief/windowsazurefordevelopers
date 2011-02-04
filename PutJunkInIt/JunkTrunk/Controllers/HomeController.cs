@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Web.Mvc;
 using JunkTrunk.Models;
-using JunkTrunk.Storage;
 
 namespace JunkTrunk.Controllers
 {
@@ -57,16 +55,22 @@ namespace JunkTrunk.Controllers
 
         public ActionResult Delete(string identifier)
         {
-            var key = Guid.Parse(identifier);
-            var fileBlobRepository = new FileBlobRepository();
-            var blobFile = fileBlobRepository.GetFile(key);
-            return View(blobFile);
+            var repository = new FileBlobRepository();
+            repository.Delete(identifier);
+            return RedirectToAction("Index", "Home");
+
+            //var key = Guid.Parse(identifier);
+            //var fileBlobRepository = new FileBlobRepository();
+            //var blobFile = fileBlobRepository.GetFile(key);
+            //return View(blobFile);
         }
 
-        [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Delete(FileItemModel fileItemModel)
-        {
-
-        }
+        //[AcceptVerbs(HttpVerbs.Post)]
+        //public ActionResult Delete(FileItemModel fileItemModel)
+        //{
+        //    var repository =new FileBlobRepository();
+        //    repository.Delete(fileItemModel);
+        //    return RedirectToAction("Index", "Home");
+        //}
     }
 }
