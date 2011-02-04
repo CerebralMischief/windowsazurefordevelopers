@@ -86,8 +86,6 @@
     <Content Include="Global.asax" />
     <Content Include="Views\Home\Delete.aspx" />
     <Content Include="Views\Home\Upload.aspx" />
-    <Content Include="Views\Home\ViewPage1.aspx" />
-    <Content Include="Views\Home\ViewPage2.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
