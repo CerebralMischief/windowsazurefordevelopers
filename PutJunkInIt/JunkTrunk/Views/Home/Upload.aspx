@@ -37,7 +37,7 @@
 				<%: Html.ValidationMessageFor(model => model.Description) %>
 			</div>--%>
 		<!-- Added fields - be sure to copy -->
-		<div class="editor-label">
+        <div class="editor-label">
 			Select file to upload to Windows Azure Blob Storage:
 		</div>
 		<div class="editor-field">

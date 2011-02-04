@@ -14,7 +14,7 @@ namespace JunkTrunk.Storage
             Context.Add(data);
         }
 
-         public static MetaData GetMetaData(Guid key)
+        public static MetaData GetMetaData(Guid key)
         {
             return (from e in Context.Data
                     where e.RowKey == key.ToString() && e.PartitionKey == PartitionKey
@@ -23,25 +23,22 @@ namespace JunkTrunk.Storage
 
         public static void DeleteMetaDataAndBlob(Guid key)
         {
-            var entity = (from e in Context.Data
-                    where e.RowKey == key.ToString() && e.PartitionKey == PartitionKey
-                    select e).SingleOrDefault();
+            var ctxt = new MetaDataContext(Account.TableEndpoint.AbsoluteUri, Account.Credentials);
+            var entity = (from e in ctxt.Data
+                          where e.RowKey == key.ToString() && e.PartitionKey == PartitionKey
+                          select e).SingleOrDefault();
+            ctxt.DeleteObject(entity);
             Storage.Blob.DeleteBlob(entity.ResourceUri);
-
-            
-
-            Context.AttachTo("something", entity);
-            Context.DeleteObject(entity);
-            Context.SaveChanges();
+            ctxt.SaveChanges();
         }
 
-       public static List<MetaData> GetAll()
+        public static List<MetaData> GetAll()
         {
             return (from e in Context.Data
                     select e).ToList();
         }
 
-        static MetaDataContext Context
+        public static MetaDataContext Context
         {
             get { return new MetaDataContext(Account.TableEndpoint.AbsoluteUri, Account.Credentials); }
         }

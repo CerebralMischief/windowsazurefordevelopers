@@ -21,9 +21,6 @@
             <th>
                 DownloadedOn
             </th>
-            <th>
-                Description
-            </th>
         </tr>
         <% foreach (var item in Model)
            { %>
