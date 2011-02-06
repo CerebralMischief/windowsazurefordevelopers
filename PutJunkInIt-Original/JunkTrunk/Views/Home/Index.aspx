@@ -26,7 +26,8 @@
            { %>
         <tr>
             <td>
-                <%: Html.ActionLink("Delete", "Delete", new { identifier = item.ResourceId })%>
+                <%: Html.ActionLink("Delete", "Delete", 
+                new { identifier = item.ResourceId })%>
             </td>
             <td>
                 <%: item.ResourceLocation %>
@@ -37,7 +38,5 @@
         </tr>
         <% } %>
     </table>
-    <p>
-        <%: Html.ActionLink("Upload a New File", "Upload") %>
-    </p>
+  
 </asp:Content>

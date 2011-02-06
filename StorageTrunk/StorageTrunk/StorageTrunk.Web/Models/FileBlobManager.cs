@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using JunkTrunk.Storage;
-using JunkTrunk.Storage.DataTransferObjects;
-using Microsoft.WindowsAzure.StorageClient;
+using StorageTrunk.Repository;
+using StorageTrunk.Repository.DataTransferObjects;
 
-namespace JunkTrunk.Models
+namespace StorageTrunk.Web.Models
 {
-    public class FileBlobRepository
+    public class FileBlobManager
     {
         public void PutFile(BlobModel blobModel)
         {
@@ -21,8 +20,6 @@ namespace JunkTrunk.Models
                         ResourceUri = blobUri,
                         RowKey = Guid.NewGuid().ToString()
                     });
-
-            Queue.Add(new CloudQueueMessage(blobUri + "$" + blobFileName));
         }
 
         public BlobModel GetFile(Guid key)
@@ -49,11 +46,6 @@ namespace JunkTrunk.Models
                                     ResourceLocation = metaData.ResourceUri,
                                     UploadedOn = metaData.Date
                                 }).ToList();
-        }
-
-        public void ClearTheData()
-        {
-            Table.ClearAllData();
         }
 
         public void Delete(string identifier)
