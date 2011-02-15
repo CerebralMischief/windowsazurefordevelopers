@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Threading;
 using Microsoft.WindowsAzure;
 using Microsoft.WindowsAzure.Diagnostics;
 using Microsoft.WindowsAzure.ServiceRuntime;
-using Microsoft.WindowsAzure.StorageClient;
 
 namespace StorageTrunk.Worker
 {
@@ -15,23 +12,48 @@ namespace StorageTrunk.Worker
     {
         public override void Run()
         {
-            // This is a sample worker implementation. Replace with your logic.
-            Trace.WriteLine("StorageTrunk.Worker entry point called", "Information");
+            Trace.WriteLine("Worker entry point called", "Information");
 
             while (true)
             {
-                Thread.Sleep(10000);
-                Trace.WriteLine("Working", "Information");
+                PhotoProcessing.Run();
+
+                Thread.Sleep(60000);
+                Trace.WriteLine("Working", "Worker Role is active and running.");
             }
+        }
+
+        private static void RoleEnvironmentChanging(object sender, RoleEnvironmentChangingEventArgs e)
+        {
+            if (!e.Changes.Any(change => change is RoleEnvironmentConfigurationSettingChange)) return;
+
+            Trace.WriteLine("Working", "Environment Change: " + e.Changes.ToList());
+            e.Cancel = true;
         }
 
         public override bool OnStart()
         {
-            // Set the maximum number of concurrent connections 
             ServicePointManager.DefaultConnectionLimit = 12;
+            DiagnosticMonitor.Start("Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString");
+            RoleEnvironment.Changing += RoleEnvironmentChanging;
 
-            // For information on handling configuration changes
-            // see the MSDN topic at http://go.microsoft.com/fwlink/?LinkId=166357.
+            CloudStorageAccount.SetConfigurationSettingPublisher((configName, configSetter) =>
+            {
+                configSetter(RoleEnvironment.GetConfigurationSettingValue(configName));
+                RoleEnvironment.Changed += (sender, arg) =>
+                {
+                    if (arg.Changes.OfType<RoleEnvironmentConfigurationSettingChange>()
+                        .Any((change) => (change.ConfigurationSettingName == configName)))
+                    {
+                        if (!configSetter(RoleEnvironment.GetConfigurationSettingValue(configName)))
+                        {
+                            RoleEnvironment.RequestRecycle();
+                        }
+                    }
+                };
+            });
+
+            Repository.RepositorySetup.CreateContainersQueuesTables();
 
             return base.OnStart();
         }

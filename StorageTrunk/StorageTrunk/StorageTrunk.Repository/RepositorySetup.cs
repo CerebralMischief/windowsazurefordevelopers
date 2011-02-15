@@ -1,6 +1,6 @@
 ﻿namespace StorageTrunk.Repository
 {
-    class RepositorySetup : RepositoryBase
+    public class RepositorySetup : RepositoryBase
     {
         public static void CreateContainersQueuesTables()
         {

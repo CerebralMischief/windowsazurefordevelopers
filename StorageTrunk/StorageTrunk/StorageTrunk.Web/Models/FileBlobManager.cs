@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.WindowsAzure.StorageClient;
 using StorageTrunk.Repository;
 using StorageTrunk.Repository.DataTransferObjects;
 
@@ -20,6 +21,8 @@ namespace StorageTrunk.Web.Models
                         ResourceUri = blobUri,
                         RowKey = Guid.NewGuid().ToString()
                     });
+
+            Queue.Add(new CloudQueueMessage(blobUri + "$" + blobFileName));
         }
 
         public BlobModel GetFile(Guid key)
