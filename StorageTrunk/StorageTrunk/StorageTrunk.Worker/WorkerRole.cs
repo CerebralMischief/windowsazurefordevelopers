@@ -18,7 +18,7 @@ namespace StorageTrunk.Worker
             {
                 PhotoProcessing.Run();
 
-                Thread.Sleep(60000);
+                Thread.Sleep(5000);
                 Trace.WriteLine("Working", "Worker Role is active and running.");
             }
         }
